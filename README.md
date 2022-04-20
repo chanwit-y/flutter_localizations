@@ -24,12 +24,50 @@ flutter:
   generate: true # Add this line
 ```
 
-3.Add a new yaml file to the root directory of the Flutter project called l10n.yaml with the following content:
+3. Add a new yaml file to the root directory of the Flutter project called l10n.yaml with the following content:
 
 ```
 arb-dir: lib/l10n
 template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart
+```
+This file configures the localization tool; in this example, the input files are located in ${FLUTTER_PROJECT}/lib/l10n, the app_en.arb file provides the template, and the generated localizations are placed in the app_localizations.dart file.
+
+4. In ${FLUTTER_PROJECT}/lib/l10n, add the app_en.arb template file. For example:
+```
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    }
+}
+```
+5. Next, add an app_es.arb file in the same directory for Spanish translation of the same message:
+```
+{
+    "helloWorld": "¡Hola Mundo!"
+}
+```
+6. Now, run your app so that codegen takes place. You should see generated files in ${FLUTTER_PROJECT}/.dart_tool/flutter_gen/gen_l10n.
+7. Add the import statement on app_localizations.dart and AppLocalizations.delegate in your call to the constructor for MaterialApp.
+```
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+```
+```
+return const MaterialApp(
+  title: 'Localizations Sample App',
+  localizationsDelegates: [
+    AppLocalizations.delegate, // Add this line
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: [
+    Locale('en', ''), // English, no country code
+    Locale('es', ''), // Spanish, no country code
+  ],
+  home: MyHomePage(),
+);
 ```
 
 <!-- ## Getting Started
