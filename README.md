@@ -6,14 +6,14 @@ Adding your own localized messages
 Once the flutter_localizations package is added, use the following instructions to add localized text to your application
 
 1. Add the intl package to the pubspec.yaml file:
-`
+```
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0 # Add this line
-`
+```
 
 <!-- ## Getting Started
 
