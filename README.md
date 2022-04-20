@@ -1,6 +1,6 @@
 # flutter_localizations_demo
 
-   - [referent]: (https://docs.flutter.dev/development/accessibility-and-localization/internationalization)
+   - [referent](https://docs.flutter.dev/development/accessibility-and-localization/internationalization)
 
 ## A new Flutter project.
 
