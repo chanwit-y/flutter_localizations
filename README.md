@@ -71,6 +71,10 @@ return const MaterialApp(
   home: MyHomePage(),
 );
 ```
+8. Use AppLocalizations anywhere in your app. Here, the translated message is used in a Text widget.
+```
+Text(AppLocalizations.of(context)!.helloWorld);
+```
 
 <!-- ## Getting Started
 
